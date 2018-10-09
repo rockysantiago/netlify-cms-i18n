@@ -1,26 +1,47 @@
 backend:
   name: github
-  repo: pbrandone/netlify-cms-i18n
+  repo: rockysantiago/netlify-cms-i18n
   branch: master # Branch to update
 
 media_folder: static/media
 public_folder: /media
 
 collections:
-  - label: "Pages"
-    name: "pages"
+  - label: 'Pages'
+    name: 'pages'
+    editor:
+      preview: false
     files:
-      - label: "Home page (English)"
-        name: "home_en"
-        file: "src/data/home/en.json"
-        extension: "json"
+      - label: 'Home page (English)'
+        name: 'home_en'
+        file: 'src/data/home/en.json'
+        extension: 'json'
         fields:
-          - {label: "Hello world", name: "hello", widget: "string"}
-          - {label: "Featured Image", name: "image", widget: "image"}
-      - label: "Home page (Portuguese)"
-        name: "home_pt"
-        file: "src/data/home/pt.json"
-        extension: "json"
+          - { label: 'Hello world', name: 'hello', widget: 'string' }
+          - { label: 'Featured Image', name: 'image', widget: 'image' }
+      - label: 'Home page (Portuguese)'
+        name: 'home_pt'
+        file: 'src/data/home/pt.json'
+        extension: 'json'
         fields:
-          - {label: "Hello world", name: "hello", widget: "string"}
-          - {label: "Featured Image", name: "image", widget: "image"}
+          - { label: 'Hello world', name: 'hello', widget: 'string' }
+          - { label: 'Featured Image', name: 'image', widget: 'image' }
+  - label: Home
+    name: home
+    folder: home
+    create: true
+    editor:
+      preview: false
+    widget: 'list'
+    fields:
+      - {
+          label: Quote,
+          name: quote,
+          widget: string,
+          default: 'Everything is awesome!',
+        }
+      - label: Author
+        name: author
+        widget: object
+        fields:
+          - { label: Name, name: name, widget: string, default: 'Emmet' }
